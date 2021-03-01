@@ -28,6 +28,8 @@ private:
 	UPROPERTY(EditAnyWhere, BluePrintReadWrite, Category = "Movement", meta = (AllowPrivateAccess = "true"));
 	float RotateSpeed = 100.0f;
 
+	APlayerController* PlayerControllerRef ;
+
 	void CalculateMoveInput(float Value);
 	void CalculateRotation(float Value);
 
@@ -47,4 +49,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	virtual void HandleDestruction() override;
 };

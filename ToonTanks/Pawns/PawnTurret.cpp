@@ -13,12 +13,27 @@ void APawnTurret::BeginPlay()
     GetWorld()->GetTimerManager().SetTimer(FireRateTimerHandle, this, &APawnTurret::CheckFireCondition, FireRate, true);
 
     PlayerPawn = Cast<APawnTank>(UGameplayStatics::GetPlayerPawn(this, 0));
+
+}
+
+void APawnTurret::HandleDestruction()
+{
+    // Call base pawn class HandleDestruction to play effects.
+    Super::HandleDestruction();
+    Destroy();
 }
 
 // Called every frame
 void APawnTurret::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+    if(!PlayerPawn || ReturnDistanceToPlayer() > FireRange)
+    {
+        return;
+    }
+
+    RotateTurret(PlayerPawn->GetActorLocation());
 
 }
 
@@ -33,7 +48,7 @@ void APawnTurret::CheckFireCondition()
     // If player is in range then FIRE
     if(ReturnDistanceToPlayer() <= FireRange)
     {
-        UE_LOG(LogTemp, Warning, TEXT("Fire Condition Checked"));
+        Fire();
     }
  
 }
