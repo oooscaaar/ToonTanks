@@ -34,7 +34,6 @@ private:
 	void Move();
 	void Rotate();
 
-
 public:
 
 	APawnTank();
