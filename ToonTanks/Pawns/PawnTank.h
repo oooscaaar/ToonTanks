@@ -20,6 +20,21 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, category = "Components", meta = (AllowPrivateAccess = "true"));
 	UCameraComponent* Camera;
 
+	FVector MoveDirection;
+	FQuat RotationDirection;
+
+	UPROPERTY(EditAnyWhere, BluePrintReadWrite, Category = "Movement", meta = (AllowPrivateAccess = "true"));
+	float MoveSpeed = 100.0f;
+	UPROPERTY(EditAnyWhere, BluePrintReadWrite, Category = "Movement", meta = (AllowPrivateAccess = "true"));
+	float RotateSpeed = 100.0f;
+
+	void CalculateMoveInput(float Value);
+	void CalculateRotation(float Value);
+
+	void Move();
+	void Rotate();
+
+
 public:
 
 	APawnTank();
