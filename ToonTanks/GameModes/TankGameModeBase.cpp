@@ -1,0 +1,36 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "TankGameModeBase.h"
+
+
+// Called when the game starts or when spawned
+void ATankGameModeBase::BeginPlay()
+{
+	// Get references and game win/lose conditions.
+
+    // Call HandleGameStart() to initialize the start countdown, turret activarion, pawn check, etc.
+	
+}
+
+void ATankGameModeBase::ActorDied(AActor* DeadActor)
+{
+    // Check what type of actor died. If turret, tally. If Player -> go to lose condition.
+}
+
+void ATankGameModeBase::HandleGameStart()
+{
+    // Iinitialize the start countdown, turret activarion, pawn check, etc.
+
+    // Call Blueprint versin GameStart();
+}
+
+void ATankGameModeBase::HandleGameOver(bool PlayerWorn)
+{
+    // See if the player has destroyed all the turrets, show win result.
+    // else if turret destroyed player, show lose result.
+    // Call blueprint version GameOver(bool).
+}
+
+
+
