@@ -29,6 +29,8 @@ public:
 	void ActorDied(AActor* DeadActor);
 
 protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Loop");
+	int32 StartDelay = 3;
 
 	virtual void BeginPlay() override;
 	UFUNCTION(BlueprintImplementableEvent) // Handle the function implementation in the derived blueprint class.
