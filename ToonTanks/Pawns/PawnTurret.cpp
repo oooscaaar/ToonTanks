@@ -48,7 +48,6 @@ void APawnTurret::CheckFireCondition()
     // If player is in range then FIRE
     if(ReturnDistanceToPlayer() <= FireRange)
     {
-        UE_LOG(LogTemp, Warning, TEXT("Should be spawning projectiles.")); 
         Fire();
     }
  
